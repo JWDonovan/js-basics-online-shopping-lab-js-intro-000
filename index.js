@@ -52,7 +52,20 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  let index = getCart().indexOf()
+  let found = false;
+
+  for (let i = 0; i < getCart().length; i++) {
+    if (getCart()[i].itemName === item) {
+      found = true;
+      // remove from cart
+      setCart(getCart().slice(0, i).concat(getCart().slice(i + 1, getCart().length)));
+      break;
+    }
+  }
+
+  if (!found) {
+    return 'not in cart';
+  }
 }
 
 function placeOrder(cardNumber) {
