@@ -22,7 +22,9 @@ function viewCart() {
   // write your code here
   let string = 'In your cart, you have ';
 
-  if (cart.length === 1) {
+  if (cart.length === 0) {
+    return 'Your shopping cart is empty.';
+  } else if (cart.length === 1) {
     string += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`;
   } else {
     for (let i = 0; i < cart.length; i++) {
