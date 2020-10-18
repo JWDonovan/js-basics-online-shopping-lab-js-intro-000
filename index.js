@@ -20,29 +20,27 @@ function addToCart(item) {
 
 function viewCart() {
   // write your code here
-  let string = 'In your cart, you have ';
-
   if (cart.length === 0) {
     return 'Your shopping cart is empty.';
-  } else if (cart.length === 1) {
-    string += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`;
   } else {
+    let string = 'In your cart, you have ';
+
     for (let i = 0; i < cart.length; i++) {
       let plus = `${getCart()[i].itemName} at $${getCart()[i].itemPrice}`;
 
       if (i !== 0) {
-        if (i !== cart.length - 1) {
-          string += ', ';
-        } else {
-          string += ', and ';
+        string += ', '
+
+        if (i === cart.length - 1) {
+          string += 'and ';
         }
       }
 
       string += plus;
     }
-  }
 
-  return string + '.';
+    return string + '.';
+  }
 }
 
 function total() {
